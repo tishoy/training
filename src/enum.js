@@ -83,6 +83,7 @@ export const CHECK_AVAILABLE = "available";
 export const RESET_INFO = "reset";
 export const INSERT_STUDENT = "insert";
 export const REMOVE_STUDENT = "remove";
+export const ALL_INFO = "info";
 export const BASE_INFO = "base";
 export const SELF_INFO = "self";
 export const ADDEXP = "addexp";
