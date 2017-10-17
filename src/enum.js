@@ -88,6 +88,7 @@ export const BASE_INFO = "base";
 export const SELF_INFO = "self";
 export const ADDEXP = "addexp";
 export const DELEXP = "delexp";
+export const STUDENT_INFOS = "studentsInfos";
 
 export const ARRANGE_EXAM = "examing";
 export const PASS_EXAM = "pass";
