@@ -78,6 +78,7 @@ export const STATUS_PASSED_CANTDO = 3;                //补考失败  重安排�
  * 路由枚举
  */
 export const LOGIN = "login";
+export const ORG_LOGIN = "institution_login";
 export const REGISTER_COMPANY = "register";
 export const CHECK_AVAILABLE = "available";
 export const RESET_INFO = "reset";
@@ -100,9 +101,12 @@ export const ENROLL_STUDENT = "enroll";
 export const AGREE_ARRANGE = "agree";
 export const REFUSE_ARRANGE = "refuse";
 
-export const NEW_CLASS = "new";
+export const NEW_CLASS = "createClass";
 export const ENTRANCE_CLASS = "entrance";
 export const EXIT_CLASS = "exit";
+export const EDIT_CLASS = "editClass";
+export const DELETE_CLASS = "delClass";
+export const CLASS_INFOS = "classInfos";
 
 export const QUERY = "query";
 
