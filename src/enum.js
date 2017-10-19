@@ -109,9 +109,9 @@ export const EDIT_CLASS = "editClass";
 export const DELETE_CLASS = "delClass";
 export const CLASS_INFOS = "classInfos";
 
-export const NEW_AREA = "";
-export const DEL_AREA = "";
-export const QUERY_AREA = "";
+export const NEW_AREA = "createArea";
+export const DEL_AREA = "delArea";
+export const QUERY_AREA = "areaInfos";
 export const CLASS_IN_AREA = "";
 export const QUERY_STUDENT_LIST_IN_AREA = "";
 export const PUSH_STUDENT_TO_CLAZZ = "";
