@@ -104,9 +104,17 @@ export const REFUSE_ARRANGE = "refuse";
 export const NEW_CLASS = "createClass";
 export const ENTRANCE_CLASS = "entrance";
 export const EXIT_CLASS = "exit";
+export const TICK_FROM_CLAZZ = "";
 export const EDIT_CLASS = "editClass";
 export const DELETE_CLASS = "delClass";
 export const CLASS_INFOS = "classInfos";
+
+export const NEW_AREA = "";
+export const DEL_AREA = "";
+export const QUERY_AREA = "";
+export const CLASS_IN_AREA = "";
+export const QUERY_STUDENT_LIST_IN_AREA = "";
+export const PUSH_STUDENT_TO_CLAZZ = "";
 
 export const QUERY = "query";
 
