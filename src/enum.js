@@ -14,8 +14,8 @@ export const NOTICE = "notice";
  * 数据类型枚举
  */
 export const DATA_TYPE_ALL = "all";               // 全部数据
-export const DATA_TYPE_STUDENT = "student";       // 学生数据
-export const DATA_TYPE_CLAZZ = "clazz";           // 班级数据
+export const DATA_TYPE_STUDENT = "students";       // 学生数据
+export const DATA_TYPE_CLAZZ = "clazzes";           // 班级数据
 export const DATA_TYPE_BASE = "base";             // 基础数据
 export const DATA_TYPE_FINANCE = "finance";       // 财政数据
 export const DATA_TYPE_EXPRESS = "express";       // 邮寄数据
@@ -41,7 +41,8 @@ export const STATUS_EXAM_RESULT_SCORE = "score";           //考试成绩
  */
 export const STATUS_ENROLLED_UNDO = 0;              //未报名
 export const STATUS_ENROLLED_DID = 1;                //已经报名
-export const STATUS_ENROLLED_REDO = 2;                //重报名
+export const STATUS_ARRANGED_DID = 2;
+// export const STATUS_ENROLLED_REDO = 2;                //重报名
 
 /**
  * 课程安排状态枚举
@@ -49,7 +50,7 @@ export const STATUS_ENROLLED_REDO = 2;                //重报名
  */
 export const STATUS_ARRANGED_UNDO = 0;              //未安排
 export const STATUS_ARRANGED_DOING = 1;                //已安排
-export const STATUS_ARRANGED_DID = 2;                //已回访 电话询问能否上课
+// export const STATUS_ARRANGED_DID = 2;                //已回访 电话询问能否上课
 
 /**
  * 电话回访结果
