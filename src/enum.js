@@ -19,6 +19,10 @@ export const DATA_TYPE_CLAZZ = "clazzes";           // 班级数据
 export const DATA_TYPE_AREA = "areas";
 export const DATA_TYPE_COURSE = "courses";
 export const DATA_TYPE_TI = "ti";
+export const DATA_TYPE_BASE = "base";             // 基础数据
+export const DATA_TYPE_FINANCE = "finance";       // 财政数据
+export const DATA_TYPE_EXPRESS = "express";       // 邮寄数据
+export const DATA_TYPE_ADMIN = "admin";           // 管理员数据
 
 /**
  * 状态枚举
