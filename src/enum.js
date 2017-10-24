@@ -83,7 +83,7 @@ export const STATUS_PASSED_CANTDO = 3;                //补考失败  重安排�
  */
 export const LOGIN = "login";
 export const CHECK_CODE = "get_checkcode";
-export const ORG_LOGIN = "institution_login";
+export const ORG_LOGIN = "login";
 export const REGISTER_COMPANY = "register";
 export const CHECK_AVAILABLE = "available";
 export const UPDATE_COMPANY = "update_company";
