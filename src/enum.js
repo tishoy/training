@@ -87,21 +87,8 @@ export const UPDATE_STUDENT = "update_student";
 export const REMOVE_STUDENT = "remove_student";
 export const ENROLL_STUDENT = "enroll_student";
 export const UNROLL_STUDENT = "unroll_student";
-export const ALL_INFO = "info";
-export const BASE_INFO = "base";
-export const SELF_INFO = "self";
 export const STUDENT_INFOS = "studentsInfos";
 export const LOGOUT = "logout";
-
-export const ARRANGE_EXAM = "examing";
-export const PASS_EXAM = "pass";
-export const RETRY_EXAM = "retry";
-export const GIVE_SCORE = "score";
-export const OVER = "over";
-
-export const REFUSE_ARRANGE = "refuse";
-
-export const QUERY_AREA = "queryArea";
 
 export const QUERY = "query";
 
