@@ -16,10 +16,6 @@ export const NOTICE = "notice";
 export const DATA_TYPE_ALL = "all";               // 全部数据
 export const DATA_TYPE_STUDENT = "students";       // 学生数据
 export const DATA_TYPE_CLAZZ = "clazzes";           // 班级数据
-export const DATA_TYPE_BASE = "base";             // 基础数据
-export const DATA_TYPE_FINANCE = "finance";       // 财政数据
-export const DATA_TYPE_EXPRESS = "express";       // 邮寄数据
-export const DATA_TYPE_ADMIN = "admin";           // 管理员数据
 export const DATA_TYPE_AREA = "areas";
 export const DATA_TYPE_COURSE = "courses";
 export const DATA_TYPE_TI = "ti";
@@ -30,7 +26,6 @@ export const DATA_TYPE_TI = "ti";
 export const STATUS_ENROLLED = "enrolled";        //报名
 export const STATUS_ARRANGED = "arranged";
 export const STATUS_AGREED = "agreed";
-export const STATUS_EXAMING = "examing";
 export const STATUS_PASSED = "passed";
 /**
  * 状态参数
@@ -90,11 +85,11 @@ export const UPDATE_COMPANY = "update_company";
 export const INSERT_STUDENT = "insert_student";
 export const UPDATE_STUDENT = "update_student";
 export const REMOVE_STUDENT = "remove_student";
+export const ENROLL_STUDENT = "enroll_student";
+export const UNROLL_STUDENT = "unroll_student";
 export const ALL_INFO = "info";
 export const BASE_INFO = "base";
 export const SELF_INFO = "self";
-export const ADDEXP = "addexp";
-export const DELEXP = "delexp";
 export const STUDENT_INFOS = "studentsInfos";
 export const LOGOUT = "logout";
 
@@ -104,25 +99,9 @@ export const RETRY_EXAM = "retry";
 export const GIVE_SCORE = "score";
 export const OVER = "over";
 
-export const ENROLL_STUDENT = "enroll";
-export const AGREE_ARRANGE = "agree";
 export const REFUSE_ARRANGE = "refuse";
 
-export const NEW_CLASS = "createClass";
-export const ENTRANCE_CLASS = "entrance";
-export const EXIT_CLASS = "exit";
-export const TICK_FROM_CLAZZ = "";
-export const EDIT_CLASS = "editClass";
-export const DELETE_CLASS = "delClass";
-export const CLASS_INFOS = "classInfos";
-
-export const NEW_AREA = "createArea";
-export const DEL_AREA = "delArea";
-export const AREA_INFOS = "areaInfos";
 export const QUERY_AREA = "queryArea";
-export const CLASS_IN_AREA = "";
-export const QUERY_STUDENT_LIST_IN_AREA = "";
-export const PUSH_STUDENT_TO_CLAZZ = "";
 
 export const QUERY = "query";
 
