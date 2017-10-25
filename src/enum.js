@@ -86,6 +86,7 @@ export const ORG_LOGIN = "login";
 export const REGISTER_COMPANY = "register";
 export const CHECK_AVAILABLE = "available";
 export const UPDATE_COMPANY = "update_company";
+export const UPDATE_ADMIN = "update_admin";
 export const INSERT_STUDENT = "insert_student";
 export const UPDATE_STUDENT = "update_student";
 export const REMOVE_STUDENT = "remove_student";
