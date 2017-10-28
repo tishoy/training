@@ -42,3 +42,4 @@ var web_version = execReturn(version_commond).replace("\n", "");
 writeConfig(web_version);
 
 execho("npm run build");
+execho("scp -r ../build root@47.93.26.208:/var/www/http/ksclient");
