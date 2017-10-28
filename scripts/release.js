@@ -43,3 +43,5 @@ writeConfig(web_version);
 
 execho("npm run build");
 execho("scp -r ../build root@47.93.26.208:/var/www/http/ksclient");
+execho("scp -r ../css/font root@47.93.26.208:/var/www/http/ksclient/css");
+execho("scp ../css/style.css root@47.93.26.208:/var/www/http/ksclient/css");
