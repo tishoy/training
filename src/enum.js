@@ -82,7 +82,6 @@ export const STATUS_PASSED_CANTDO = 3;                //补考失败  重安排�
  */
 export const LOGIN = "login";
 export const CHECK_CODE = "creat_checkcode";
-export const ORG_LOGIN = "login";
 export const REGISTER_COMPANY = "register";
 export const CHECK_AVAILABLE = "available";
 export const UPDATE_COMPANY = "update_company";
@@ -94,8 +93,17 @@ export const ENROLL_STUDENT = "enroll_student";
 export const UNROLL_STUDENT = "unroll_student";
 export const STUDENT_INFOS = "studentsInfos";
 export const LOGOUT = "logout";
-
 export const QUERY = "query";
+
+export const INST_QUERY = "inst_query";
+export const ORG_LOGIN = "login";
+export const LAST_COUNT = "last_count";
+export const UPDATE_COUNT = "update_count";
+export const CREATE_CLAZZ = "create_clazz";
+export const DELETE_CLAZZ = "delete_clazz";
+export const CREATE_TRAIN = "create_train";
+export const SELECT_CLAZZ_STUDENTS = "select_clazz_students"; //查看班级学生
+export const SELECT_STUDNETS = "select_students"; //查看待报名学生
 
 // 卡片类型
 export const CARD_TYPE_COMMON = "common";
