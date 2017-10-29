@@ -41,7 +41,7 @@ var web_version = execReturn(version_commond).replace("\n", "");
 
 writeConfig(web_version);
 
-execho("npm run build");
-execho("scp -r ../build root@47.93.26.208:/var/www/http/ksclient");
-execho("scp -r ../css/font root@47.93.26.208:/var/www/http/ksclient/css");
-execho("scp ../css/style.css root@47.93.26.208:/var/www/http/ksclient/css");
+execho("scp -r build root@47.93.26.208:/var/www/html/ksclient");
+execho("scp -r index.html root@47.93.26.208:/var/www/html/ksclient");
+execho("scp -r css/font root@47.93.26.208:/var/www/html/ksclient/css");
+execho("scp css/style.css root@47.93.26.208:/var/www/html/ksclient/css");
