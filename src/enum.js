@@ -102,6 +102,7 @@ export const UPDATE_COUNT = 'update_count';
 export const CREATE_CLAZZ = 'create_clazz';
 export const DELETE_CLAZZ = 'delete_clazz';
 export const CREATE_TRAIN = 'create_train';
+export const EDIT_CLAZZ = 'edit_clazz';
 export const SELECT_CLAZZ_STUDENTS = 'select_clazz_students'; // 查看班级学生
 export const SELECT_STUDNETS = 'select_students'; // 查看待报名学生
 
