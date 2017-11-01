@@ -60,62 +60,6 @@ function getTitle(routes) {
   return null;
 }
 
-const styleSheet = createStyleSheet('AppFrame', theme => ({
-  '@global': {
-    html: {
-      boxSizing: 'border-box',
-    },
-    '*, *:before, *:after': {
-      boxSizing: 'inherit',
-    },
-    body: {
-      margin: 0,
-      background: theme.palette.background.default,
-      color: theme.palette.text.primary,
-      lineHeight: '1.2',
-      overflowX: 'hidden',
-      WebkitFontSmoothing: 'antialiased', // Antialiasing.
-      MozOsxFontSmoothing: 'grayscale', // Antialiasing.
-      fontFamily: '"Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif'
-    },
-    img: {
-      maxWidth: '100%',
-      height: 'auto',
-      width: 'auto',
-    },
-  },
-  appFrame: {
-    display: 'flex',
-    alignItems: 'stretch',
-    minHeight: '100vh',
-    width: '100%',
-  },
-  grow: {
-    flex: '1 1 auto',
-  },
-  title: {
-    marginLeft: 40,
-    flex: '0 1 auto',
-  },
-  appBar: {
-    transition: theme.transitions.create('width'),
-  },
-  appBarHome: {
-    backgroundColor: 'transparent',
-    boxShadow: 'none',
-  },
-  [theme.breakpoints.up('lg')]: {
-    drawer: {
-      width: '150px',
-    },
-    appBarShift: {
-      width: 'calc(100% - 150px)',
-    },
-    navIconHide: {
-      display: 'none',
-    },
-  },
-}));
 
 const COMPANY_LOING_INDEX = 0;
 const COMPANY_REGISTER_INDEX = 1;
@@ -138,6 +82,14 @@ TabContainer.propTypes = {
 };
 
 class AppFrame extends Component {
+
+  static propTypes = {
+    children: PropTypes.node.isRequired,
+    dispatch: PropTypes.func.isRequired,
+    routes: PropTypes.array.isRequired,
+    width: PropTypes.string.isRequired,
+  };
+
   static contextTypes = {
     router: PropTypes.object.isRequired,
   }
@@ -181,7 +133,7 @@ class AppFrame extends Component {
     // this.get_check_code();
     if (!sessionStorage.logged || sessionStorage.logged === false) {
       this.context.router.push("/");
-    
+
     } else {
       switch (Number(sessionStorage.apptype)) {
         case APP_TYPE_COMPANY:
@@ -297,9 +249,7 @@ class AppFrame extends Component {
             this.context.router.push("/org/home");
             break;
         }
-        // this.popUpNotice(NOTICE, message.code, Lang[window.Lang].pages.main.login_success);
       } else {
-        console.log(message.msg)
         this.popUpNotice(NOTICE, 0, message.msg);
       }
     }
@@ -753,41 +703,42 @@ class AppFrame extends Component {
 
     const { children, routes, width } = this.props;
 
-    const classes = this.props.classes;
     const title = getTitle(routes);
 
     let drawerDocked = isWidthUp('lg', width);
-    let navIconClassName = classes.icon;
-    let appBarClassName = classes.appBar;
 
-    if (title === null) {
-      // home route, don't shift app bar or dock drawer
-      drawerDocked = false;
-      appBarClassName += ` ${classes.appBarHome}`;
-    } else {
-      navIconClassName += ` ${classes.navIconHide}`;
-      appBarClassName += ` ${classes.appBarShift}`;
-    }
+    // if (title === null) {
+    //   // home route, don't shift app bar or dock drawer
+    //   drawerDocked = false;
+    //   appBarClassName += ` ${classes.appBarHome}`;
+    // } else {
+    //   navIconClassName += ` ${classes.navIconHide}`;
+    //   appBarClassName += ` ${classes.appBarShift}`;
+    // }
 
     return (
       <div className="nyx">
         {sessionStorage.getItem("logged") === "true" ?
-          <div className={classes.appFrame}>
-            <AppBar className={appBarClassName + ' nyx-topbar'}>
+          <div style={{
+            display: 'flex',
+            alignItems: 'stretch',
+            minHeight: '100vh',
+            width: '100%',
+          }}>
+            <AppBar className={'nyx-topbar'}>
               <Toolbar>
                 <IconButton
                   color="contrast"
                   onClick={this.handleDrawerToggle}
-                  className={navIconClassName}
                 >
                   <MenuIcon />
                 </IconButton>
                 {title !== null &&
-                  <Typography className={classes.title} type="title" color="inherit" noWrap>
+                  <Typography type="title" color="inherit" noWrap>
                     {title}
                   </Typography>}
-                <div className={classes.grow} />
-                <h2 style={{float:"right"}}>{"信息系统集成及服务项目管理人员培训报名系统"}</h2>
+                <div />
+                <h2 style={{ float: "right" }}>{"信息系统集成及服务项目管理人员培训报名系统"}</h2>
                 <IconButton
                   color="contrast"
                   onClick={() => {
@@ -798,13 +749,15 @@ class AppFrame extends Component {
               </Toolbar>
             </AppBar>
             <AppDrawer
-              className={classes.drawer + ' nyx-sidebar'}
+              className={'nyx-sidebar'}
               docked={drawerDocked}
               routes={routes}
               onRequestClose={this.handleDrawerClose}
               open={sessionStorage.getItem("logged") === "true" ? (drawerDocked || this.state.drawerOpen) : false}
             />
-            {children}
+            <div style={{ marginLeft: 300 }}>
+              {children}
+            </div>
           </div> : this.LoginTable()}
         <CommonAlert
           show={this.state.alertOpen}
@@ -818,12 +771,5 @@ class AppFrame extends Component {
   }
 }
 
-AppFrame.propTypes = {
-  children: PropTypes.node.isRequired,
-  classes: PropTypes.object.isRequired,
-  dispatch: PropTypes.func.isRequired,
-  routes: PropTypes.array.isRequired,
-  width: PropTypes.string.isRequired,
-};
 
-export default compose(withStyles(styleSheet), withWidth(), connect())(AppFrame);
+export default withWidth()(AppFrame);
