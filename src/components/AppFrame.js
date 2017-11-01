@@ -19,6 +19,7 @@ import Refresh from 'material-ui-icons/Refresh';
 import Tabs, { Tab } from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
 import TextField from 'material-ui/TextField';
+import Paper from 'material-ui/Paper';
 import Button from 'material-ui/Button';
 import Dialog, {
   DialogActions,
@@ -180,16 +181,7 @@ class AppFrame extends Component {
     // this.get_check_code();
     if (!sessionStorage.logged || sessionStorage.logged === false) {
       this.context.router.push("/");
-      addEventListener("login_success", (e) => {
-        switch (Number(sessionStorage.apptype)) {
-          case APP_TYPE_COMPANY:
-            window.location = "/com/home";
-            break;
-          case APP_TYPE_ORANIZATION:
-            window.location = "/org/home";
-            break;
-        }
-      });
+    
     } else {
       switch (Number(sessionStorage.apptype)) {
         case APP_TYPE_COMPANY:
@@ -280,8 +272,8 @@ class AppFrame extends Component {
       }
       this.popUpNotice(NOTICE, 0, message.msg);
     }
-    
-    console.log( { account: account, password: password, type: APP_TYPE_COMPANY });
+
+    console.log({ account: account, password: password, type: APP_TYPE_COMPANY });
     getData(getRouter(REGISTER_COMPANY), { account: account, password: password, type: APP_TYPE_COMPANY }, cb, { account: account, password: password });
   }
 
@@ -294,9 +286,17 @@ class AppFrame extends Component {
         sessionStorage.session = message.data.session;
         sessionStorage.apptype = arg["type"];
 
-        let e = new Event("login_success");
-        dispatchEvent(e);
+        // let e = new Event("login_success");
+        // dispatchEvent(e);
         this.popUpNotice(NOTICE, 0, Lang[window.Lang].pages.main.login_success);
+        switch (Number(arg["type"])) {
+          case APP_TYPE_COMPANY:
+            this.context.router.push("/com/home");
+            break;
+          case APP_TYPE_ORANIZATION:
+            this.context.router.push("/org/home");
+            break;
+        }
         // this.popUpNotice(NOTICE, message.code, Lang[window.Lang].pages.main.login_success);
       } else {
         console.log(message.msg)
@@ -305,10 +305,10 @@ class AppFrame extends Component {
     }
 
     var apptype;
-    if (this.state.index === COMPANY_LOING_INDEX) {
+    if (window.type === 1) {
       apptype = APP_TYPE_COMPANY;
       getData(getRouter(LOGIN), { account: account, password: password, type: 0, checkcode: check_code }, cb, { account: account, type: apptype });
-    } else if (this.state.index === ORANIZATION_LOING_INDEX) {
+    } else if (window.type === 2) {
       apptype = APP_TYPE_ORANIZATION;
       getData(getRouter(ORG_LOGIN), { account: account, password: password, type: 1, checkcode: check_code }, cb, { account: account, type: apptype });
     }
@@ -362,8 +362,9 @@ class AppFrame extends Component {
               })
             }}
             onBlur={(e) => {
-              if (document.getElementById("register_account").value===""){}else{
-              this.check_available(document.getElementById("register_account").value);}
+              if (document.getElementById("register_account").value === "") { } else {
+                this.check_available(document.getElementById("register_account").value);
+              }
             }}
             helperText={this.state.available_result}
           />
@@ -373,9 +374,9 @@ class AppFrame extends Component {
             id="register_password"
             label={Lang[window.Lang].pages.main.password}
             style={{
-                  marginLeft: "auto",
-                  marginRight: "auto",
-                  marginTop: 20,
+              marginLeft: "auto",
+              marginRight: "auto",
+              marginTop: 20,
             }}
             type="password"
             fullWidth={true}
@@ -401,10 +402,10 @@ class AppFrame extends Component {
           />
           <TextField
             style={{
-                  marginLeft: "auto",
-                  marginRight: "auto",
-                  width: "75%",
-                  marginTop: 20,
+              marginLeft: "auto",
+              marginRight: "auto",
+              width: "75%",
+              marginTop: 20,
             }}
             error={this.state.repeat_error}
             name="repeat_password"
@@ -413,32 +414,33 @@ class AppFrame extends Component {
             type="password"
             fullWidth={true}
             onBlur={(e) => {
-              if(document.getElementById("register_password").value === "" && document.getElementById("repeat_password").value ===""){
+              if (document.getElementById("register_password").value === "" && document.getElementById("repeat_password").value === "") {
                 this.setState({
                   repeat_error: false,
                   password_error: false,
                   repeat_result: "",
                   password_result: ""
-                })
-              }else{
-              if (document.getElementById("register_password").value === "") {
-                this.setState({
-                  repeat_error: true,
-                  repeat_result: Lang[window.Lang].ErrorCode[1001]
-                })
-              } else if (document.getElementById("repeat_password").value !== document.getElementById("register_password").value) {
-                this.setState({
-                  repeat_error: true,
-                  repeat_result: Lang[window.Lang].ErrorCode[1000]
                 })
               } else {
-                this.setState({
-                  repeat_error: false,
-                  password_error: false,
-                  repeat_result: "",
-                  password_result: ""
-                })
-              }}
+                if (document.getElementById("register_password").value === "") {
+                  this.setState({
+                    repeat_error: true,
+                    repeat_result: Lang[window.Lang].ErrorCode[1001]
+                  })
+                } else if (document.getElementById("repeat_password").value !== document.getElementById("register_password").value) {
+                  this.setState({
+                    repeat_error: true,
+                    repeat_result: Lang[window.Lang].ErrorCode[1000]
+                  })
+                } else {
+                  this.setState({
+                    repeat_error: false,
+                    password_error: false,
+                    repeat_result: "",
+                    password_result: ""
+                  })
+                }
+              }
             }}
             helperText={this.state.repeat_result}
           />
@@ -451,7 +453,7 @@ class AppFrame extends Component {
               let password = document.getElementById("register_password").value;
               let repeat = document.getElementById("repeat_password").value;
               this.register(account, password, repeat);//TODO
-                            
+
             }}
           >
             {Lang[window.Lang].pages.main.register_button}
@@ -480,23 +482,6 @@ class AppFrame extends Component {
     return (
       <div>
         {this.RegisterStep()}
-        {/* <MobileStepper
-          nextButtonText={this.state.activeStep !== 5 ? Lang[window.Lang].pages.main.next_step : "登陆"}
-          backButtonText={Lang[window.Lang].pages.main.pre_step}
-          type="text"
-          steps={6}
-          position="static"
-          activeStep={this.state.activeStep}
-          style={{
-            maxWidth: 400,
-            flexGrow: 1,
-          }}
-          onBack={this.handleBack}
-          onNext={this.handleNext}
-          disableBack={this.state.activeStep === 0 || this.state.activeStep === 2}
-          disableNext={this.state.activeStep === 1}
-        /> */}
-
       </div>
     )
   }
@@ -527,7 +512,7 @@ class AppFrame extends Component {
             onChange={event => this.setState({ phone_number: event.target.value })}
           />
           <a
-            
+
             color="primary"
             className={'nyx-send-checkcode'}
             onClick={() => {
@@ -545,7 +530,7 @@ class AppFrame extends Component {
             id={"phone_code" + this.state.index}
             type="phone_code"
             style={{
-              width:"75%",
+              width: "75%",
               marginLeft: "auto",//styleManager.theme.spacing.unit,
               marginRight: "auto",//theme.spacing.unit,  
             }}
@@ -604,15 +589,15 @@ class AppFrame extends Component {
             fullWidth={true}
             onChange={event => this.setState({ password: event.target.value })}
           />
-         
-          {this.state.index === 0 ?<a
-          className="nyx-findpassword"
-           onClick={() => {
-            this.setState({
-              findPassword: true
-            })
-          }}>忘记密码?</a>:""}
-         
+
+          {this.state.index === 0 ? <a
+            className="nyx-findpassword"
+            onClick={() => {
+              this.setState({
+                findPassword: true
+              })
+            }}>忘记密码?</a> : ""}
+
           <TextField
             label={"验证码"}
             id={"check_code" + this.state.index}
@@ -676,6 +661,10 @@ class AppFrame extends Component {
     )
   }
 
+  OrgLoginView = () => {
+    return this.LoginView();
+  }
+
   handleDrawerClose = () => {
     this.setState({ drawerOpen: false });
   };
@@ -694,17 +683,6 @@ class AppFrame extends Component {
   handleLogout = () => {
     this.state.logged = false;
     this.setState({ logged: sessionStorage.getItem("logged"), apptype: 0 });
-    addEventListener("login_success", (e) => {
-      switch (Number(sessionStorage.apptype)) {
-        case APP_TYPE_COMPANY:
-          window.location = "/com/home";
-          break;
-        case APP_TYPE_ORANIZATION:
-          window.location = "/org/home";
-          break;
-      }
-      this.setState({ logged: Boolean(sessionStorage.getItem("logged")), apptype: Number(sessionStorage.getItem("apptype")) })
-    })
   }
 
   logout = () => {
@@ -739,30 +717,33 @@ class AppFrame extends Component {
     return <div className={'nyx-login-bg'}>
       <div className={'nyx-login'}>
         <div className={'nyx-login-window'}>
-          <AppBar position="static" color="default">
-            <Tabs
-              index={this.state.index}
-              onChange={this.handleChange}
-              indicatorColor="primary"
-              textColor="primary"
-              fullWidth
-            >
-              <Tab label="公司登陆" />
-              <Tab label="公司注册" />
-              <Tab label="机构登陆" />
-            </Tabs>
-          </AppBar>
-          <SwipeableViews index={this.state.index} onChangeIndex={this.handleChangeIndex}>
-            <TabContainer>
-              {this.LoginView()}
-            </TabContainer>
-            <TabContainer>
-              {this.RegisterView()}
-            </TabContainer>
-            <TabContainer>
-              {this.LoginView()}
-            </TabContainer>
-          </SwipeableViews>
+
+
+          {window.type === 1 ?
+            <div>
+              <AppBar position="static" color="default">
+                <Tabs
+                  index={this.state.index}
+                  onChange={this.handleChange}
+                  indicatorColor="primary"
+                  textColor="primary"
+                  fullWidth
+                >
+                  <Tab label="公司登陆" />
+                  <Tab label="公司注册" />
+                  {/* <Tab label="机构登陆" /> */}
+                </Tabs>
+              </AppBar>
+              <SwipeableViews index={this.state.index} onChangeIndex={this.handleChangeIndex}>
+
+                <TabContainer>
+                  {this.LoginView()}
+                </TabContainer>
+                <TabContainer>
+                  {this.RegisterView()}
+                </TabContainer>
+              </SwipeableViews>
+            </div> : this.LoginView()}
         </div>
       </div>
     </div>
