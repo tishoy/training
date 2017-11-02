@@ -44,5 +44,6 @@ writeConfig(web_version);
 execho("scp -r build root@47.93.26.208:/var/www/html/ksclient");
 execho("scp -r index.html root@47.93.26.208:/var/www/html/ksclient");
 execho("scp -r css/font root@47.93.26.208:/var/www/html/ksclient/css");
+execho("scp -r css/img root@47.93.26.208:/var/www/html/ksclient/css");
 execho("scp css/style.css root@47.93.26.208:/var/www/html/ksclient/css");
 execho("scp css/main.css root@47.93.26.208:/var/www/html/ksclient/css");
