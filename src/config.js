@@ -1,2 +1,2 @@
-var config = {"routers":"http://47.93.26.208:8001/index.php?m=train&c=route&a=client_route","notification":"test.php","language":"Chin","version":"2bcc4ef"};
+var config = {"routers":"http://47.93.26.208:8001/index.php?m=train&c=route&a=client_route","notification":"test.php","language":"Chin","version":"ef99538"};
 module.exports = config;
