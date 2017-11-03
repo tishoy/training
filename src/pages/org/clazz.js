@@ -88,7 +88,8 @@ class Clazz extends Component {
             if (message.code === Code.LOGIC_SUCCESS) {
                 var result = message.data.students;
                 this.handleUptateAllData(result);
-                this.handleUpdateData(this.state.currentPage);
+                this.handleUpdateData(this.state.currentPage, message.data.page_size);
+                console.log(message.data.students.length)
                 this.setState({
                     totalPage: getTotalPage(message.data.count, this.state.rowsPerPage),
                     count: message.data.count
@@ -156,7 +157,7 @@ class Clazz extends Component {
     }
 
     modifyClazz = (id, clazz) => {
-       
+
         var cb = (route, message, arg) => {
             if (message.code === Code.LOGIC_SUCCESS) {
                 this.fresh();
@@ -461,7 +462,7 @@ class Clazz extends Component {
         this.state.allData = this.state.allData.concat(newData);
     }
 
-    handleUpdateData = (page) => {
+    handleUpdateData = (page, page_size = 100) => {
         if (page <= 0) {
             page = 1;
         }
@@ -471,7 +472,7 @@ class Clazz extends Component {
         this.state.currentPage = page;
         if (this.state.allData.length <= this.state.rowsPerPage * (page - 1) && this.state.allData.length < this.state.count) {
             // this.handleQueryRechargeCode(false, false);
-            this.queryStudents((Math.floor((this.state.currentPage - 1) / 20) + 1));
+            this.queryStudents((Math.floor((this.state.currentPage - 1) * this.state.rowsPerPage / page_size) + 1));
         } else {
             var data = this.state.allData.slice(this.state.rowsPerPage * (page - 1), this.state.rowsPerPage * page);
             this.state.onloading = false;

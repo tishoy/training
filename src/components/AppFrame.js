@@ -211,7 +211,7 @@ class AppFrame extends Component {
       })
     })
     addEventListener("session_invalid", (e) => {
-     
+
       // sessionStorage.logged = false;
       // sessionStorage.apptype = APP_TYPE_UNLOGIN;
       // sessionStorage.session = "";
@@ -237,6 +237,8 @@ class AppFrame extends Component {
           }
           var img_url = getRouter(CHECK_CODE).url;
           this.setState({ code_img_url: img_url });
+          console.log(sessionStorage.login)
+
           // this.setState({ code_img: this.getElementById("code_img" + this.state.index).src = getRouter(CHECK_CODE).url + "&time=" + Math.random() })
         } else {
           this.popUpNotice(NOTICE, 0, message.msg);
@@ -770,15 +772,15 @@ class AppFrame extends Component {
                 </TabContainer>
               </SwipeableViews>
               <div className="nyx-notice-login nyx-display-none">
-              <h3 style={{ color: "#FFFFFF" }}>特别提醒</h3>
-              <div className="nyx-login-window-acctention">
-                已经做过临时登记的企业用户以单位全称和初始密码进行登陆
+                <h3 style={{ color: "#FFFFFF" }}>特别提醒</h3>
+                <div className="nyx-login-window-acctention">
+                  已经做过临时登记的企业用户以单位全称和初始密码进行登陆
               </div>
-              <div className="nyx-login-window-acctention">
-                未做过临时登记的企业用户以单位全称进行注册
+                <div className="nyx-login-window-acctention">
+                  未做过临时登记的企业用户以单位全称进行注册
               </div>
-              <div className="nyx-login-window-acctention">
-                系统维护电话：010-51527580
+                <div className="nyx-login-window-acctention">
+                  系统维护电话：010-51527580
               </div>
               </div>
             </div> : this.LoginView()}
@@ -833,15 +835,15 @@ class AppFrame extends Component {
                   }}>
                   <i className="glyphicon glyphicon-refresh"></i>
                 </IconButton><IconButton
-                color="contrast"
+                  color="contrast"
                   onClick={() => {
-                    
+
                     this.logout()
                   }}>
                   <i className="glyphicon glyphicon-log-out"></i>
                 </IconButton>
 
-               
+
               </Toolbar>
             </AppBar>
             <AppDrawer

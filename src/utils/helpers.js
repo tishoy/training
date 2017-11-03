@@ -2,8 +2,10 @@
 import config from "../config";
 import { DATA_TYPE_ALL, QUERY, INST_QUERY, APP_TYPE_COMPANY, APP_TYPE_ORANIZATION, DATA_TYPE_STUDENT, DATA_TYPE_AREA } from "../enum";
 import Code from "../code";
+import 'fetch-detector'
+import 'fetch-ie8'
 
-export function kebabCase(string: String) {
+export function kebabCase(string) {
   return string
     .split(/ |_|-/)
     .join('-')
@@ -18,7 +20,7 @@ export function kebabCase(string: String) {
     .toLowerCase();
 }
 
-export function titleize(string: String) {
+export function titleize(string) {
   return string
     .split('-')
     .map(word => word.split(''))
@@ -131,8 +133,7 @@ export function getData(router, json, callback = null, args = {}) {
       }
     }
   }
-  let e = new Event("loading");
-  dispatchEvent(e);
+ 
   fetch(router.url, {
     method: 'POST',
     mode: 'cors',
@@ -143,8 +144,8 @@ export function getData(router, json, callback = null, args = {}) {
     },
     body: JSON.stringify(json)
   }).then(function status(response) {
-    let e = new Event("dataOnload");
-    dispatchEvent(e);
+    // let e = new Event("dataOnload");
+    // dispatchEvent(e);
     if (response.status >= 200 && response.status < 300) {
       return Promise.resolve(response);
     }
@@ -169,8 +170,8 @@ export function getData(router, json, callback = null, args = {}) {
 }
 
 function logout() {
-  let e = new Event("session_invalid");
-  dispatchEvent(e);
+  // let e = new Event("session_invalid");
+  // dispatchEvent(e);
 }
 
 export function getTotalPage(count, rows = 10) {
