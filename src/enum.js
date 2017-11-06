@@ -95,6 +95,7 @@ export const ENROLL_STUDENT = 'enroll_student';
 export const UNROLL_STUDENT = 'unroll_student';
 export const AGREE_ARRANGE = 'agree_student';
 export const STUDENT_INFOS = 'studentsInfos';
+export const DEL_TRAIN = 'del_train';
 export const LOGOUT = 'logout';
 export const QUERY = 'query';
 
