@@ -27,6 +27,8 @@ export const DATA_TYPE_ADMIN = 'admin'; // 管理员数据
 /**
  * 状态枚举
  */
+
+export const STATUS_AGREE_CLAZZ = 'agree_clazz';
 export const STATUS_ENROLLED = 'enrolled'; // 报名
 export const STATUS_ARRANGED = 'arranged';
 export const STATUS_AGREED = 'agreed';
