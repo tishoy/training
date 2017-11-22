@@ -113,6 +113,8 @@ export const UNCHOOSE_STUDENT = 'unchoose_student';
 export const EDIT_CLAZZ = 'edit_clazz';
 export const SELECT_CLAZZ_STUDENTS = 'select_clazz_students'; // 查看班级学生
 export const SELECT_STUDNETS = 'select_students'; // 查看待报名学生
+export const ADMIN_ADD = 'admin_add';
+export const ADMIN_DEL = 'admin_del';
 
 // 卡片类型
 export const CARD_TYPE_COMMON = 'common';
