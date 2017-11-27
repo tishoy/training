@@ -93,6 +93,7 @@ export const UPDATE_ADMIN = 'update_admin';
 export const INSERT_STUDENT = 'insert_student';
 export const UPDATE_STUDENT = 'update_student';
 export const REMOVE_STUDENT = 'remove_student';
+export const CLASS_INFO = 'class_info';
 export const ENROLL_STUDENT = 'enroll_student';
 export const UNROLL_STUDENT = 'unroll_student';
 export const AGREE_ARRANGE = 'agree_student';
