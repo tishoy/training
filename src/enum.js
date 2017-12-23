@@ -90,6 +90,7 @@ export const REGISTER_COMPANY = 'register';
 export const CHECK_AVAILABLE = 'available';
 export const UPDATE_COMPANY = 'update_company';
 export const UPDATE_ADMIN = 'update_admin';
+export const EDITCOMPANYNAME = 'edit_company_name';
 export const EDIT_PASSWORD = 'edit_password';
 
 export const INSERT_STUDENT = 'insert_student';
