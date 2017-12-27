@@ -86,6 +86,7 @@ export const STATUS_PASSED_CANTDO = 3; // 补考失败重安排上课
  */
 export const LOGIN = 'login';
 export const CHECK_CODE = 'creat_checkcode';
+export const CREATE_FILE = 'create_file';
 export const REGISTER_COMPANY = 'register';
 export const CHECK_AVAILABLE = 'available';
 export const UPDATE_COMPANY = 'update_company';
