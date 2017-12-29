@@ -29,6 +29,9 @@ export const DATA_TYPE_ADMIN = 'admin'; // 管理员数据
  */
 
 export const STATUS_AGREE_CLAZZ = 'agree_clazz';
+export const BATCH_AGREE_STUDENT = 'batch_agree_student';
+export const BATCH_DELETE_STUDENT = 'batch_delete_train';
+
 export const STATUS_ENROLLED = 'enrolled'; // 报名
 export const STATUS_ARRANGED = 'arranged';
 export const STATUS_AGREED = 'agreed';
