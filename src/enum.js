@@ -125,6 +125,7 @@ export const SELECT_STUDNETS_BY = 'select_students_by';
 export const ADMIN_ADD = 'admin_add';
 export const ADMIN_DEL = 'admin_del';
 export const ADMIN_EDIT = 'admin_edit';
+export const SEARCH_FILE = 'search_file';
 
 // 卡片类型
 export const CARD_TYPE_COMMON = 'common';
