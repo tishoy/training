@@ -90,6 +90,13 @@ export const STATUS_PASSED_CANTDO = 3; // 补考失败重安排上课
 export const LOGIN = 'login';
 export const CHECK_CODE = 'creat_checkcode';
 export const CREATE_FILE = 'create_file';
+export const EDIT_FILE = 'edit_file';
+export const NOTE_LIST = 'note_list';
+
+export const CREATE_TYPE = 'create_type';
+export const EDIT_TYPE = 'edit_type';
+export const TYPE_INFOS = 'type_infos';
+export const DEL_TYPE = 'del_type';
 export const REGISTER_COMPANY = 'register';
 export const CHECK_AVAILABLE = 'available';
 export const UPDATE_COMPANY = 'update_company';
@@ -126,6 +133,10 @@ export const ADMIN_ADD = 'admin_add';
 export const ADMIN_DEL = 'admin_del';
 export const ADMIN_EDIT = 'admin_edit';
 export const SEARCH_FILE = 'search_file';
+export const SEARCH_TYPE = 'search_type';
+export const DEL_FILE = 'del_file';
+
+
 
 // 卡片类型
 export const CARD_TYPE_COMMON = 'common';
