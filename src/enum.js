@@ -115,6 +115,8 @@ export const STUDENT_INFOS = 'studentsInfos';
 export const DEL_TRAIN = 'del_train';
 export const LOGOUT = 'logout';
 export const QUERY = 'query';
+export const SEND_CODE='send_code';
+export const CHECK_CODE_PASSWORD='check_code';
 
 export const INST_QUERY = 'inst_query';
 export const ORG_LOGIN = 'login';
