@@ -117,7 +117,11 @@ export const LOGOUT = 'logout';
 export const QUERY = 'query';
 export const SEND_CODE='send_code';
 export const CHECK_CODE_PASSWORD='check_code';
-
+export const  REGISTER_CHECKCODE='register_checkcode';
+export const REGISTER_NEW = 'register_new';
+export const SEARCH_COMPANYINFO = 'search_companyinfo';
+export const RESET_PASSWORD = 'reset_password';
+export const CLASS_COUNT_TIME = 'class_count_time';
 export const INST_QUERY = 'inst_query';
 export const ORG_LOGIN = 'login';
 export const LAST_COUNT = 'last_count';
