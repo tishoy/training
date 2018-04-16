@@ -15,6 +15,7 @@ export const NOTICE = 'notice';
  */
 export const DATA_TYPE_ALL = 'all'; // 全部数据
 export const DATA_TYPE_STUDENT = 'students'; // 学生数据
+export const DATA_TYPE_RESITS = 'resits'; // 补考学生数据
 export const DATA_TYPE_MESSAGE = 'messages'; //通知消息
 export const DATA_TYPE_CANCEL_STUDENT = 'cancels'; // 学生数据
 export const DATA_TYPE_CLAZZ = 'clazzes'; // 班级数据
@@ -142,6 +143,10 @@ export const EDIT_CLAZZ = 'edit_clazz';
 export const SELECT_CLAZZ_STUDENTS = 'select_clazz_students'; // 查看班级学生
 export const SELECT_STUDNETS = 'select_students'; // 查看待报名学生
 export const SELECT_STUDNETS_BY = 'select_students_by';
+export const RESIT_REG = 'resit_reg';//补考报名数组
+export const RECALL_RESIT = 'recall_resit';//取消补考报名
+export const RESIT_CLASSINFO = 'resit_classinfo';//查看补考人员班级
+
 export const ADMIN_ADD = 'admin_add';
 export const ADMIN_DEL = 'admin_del';
 export const ADMIN_EDIT = 'admin_edit';
