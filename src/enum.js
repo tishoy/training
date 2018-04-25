@@ -146,6 +146,10 @@ export const SELECT_STUDNETS_BY = 'select_students_by';
 export const RESIT_REG = 'resit_reg';//补考报名数组
 export const RECALL_RESIT = 'recall_resit';//取消补考报名
 export const RESIT_CLASSINFO = 'resit_classinfo';//查看补考人员班级
+export const SELECT_RESITS = 'select_resits';//选择补考人员
+export const CREATE_RESIT = 'create_resit';//报名补考人员
+export const DEL_RESIT = 'del_resit';//删除补考人员
+export const AGREE_RESIT = 'agree_resit';//同意补考人员
 
 export const ADMIN_ADD = 'admin_add';
 export const ADMIN_DEL = 'admin_del';
